@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2E81EBBB82A84D8D4C3C691F2AB1BC1007A61E1F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2E81EBBB82A84D8D4C3C691F2AB1BC1007A61E1F" : 0,
+    "B59D739E222FF5B9C1A28527AB74248BC7F90B0D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2B8ECACB-9031-4B6C-B7DB-17FF6BAD010B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2E81EBBB82A84D8D4C3C691F2AB1BC1007A61E1F" : "mindfulnessExplorer\/",
+    "B59D739E222FF5B9C1A28527AB74248BC7F90B0D" : "Mindfulness"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MindfulnessCoach",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "code\/MindfulnessCoach.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:jeowen\/mindfulnessExplorer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2E81EBBB82A84D8D4C3C691F2AB1BC1007A61E1F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mentalhealth\/mindfulness-ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B59D739E222FF5B9C1A28527AB74248BC7F90B0D"
+    }
+  ]
+}
