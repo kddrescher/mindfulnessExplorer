@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<mindfulnessCoach version="1.2R1">
+	<actions>
+    <action type="root" group="home" title="Mindfulness Coach">
+      <action type="dismissAndSetTabIndex" userInfo="0" icon="homeLearn.png" title="Learn" />
+      <action type="dismissAndSetTabIndex" userInfo="1" icon="homePracticeMindfulness.png" title="Practice Mindfulness" />
+      <action type="dismissAndSetTabIndex" userInfo="2" icon="homeTrackYourProgress.png" title="Track Your Progress" />
+      <action type="dismissAndSetTabIndex" userInfo="3" icon="homeReminder.png" title="Reminders" />
+    </action>
+    
+		<action type="root" group="learn" title="Learn" icon="tabBarIconLearn.png">
+			<action type="page" filename="learnWhatIsMindfulness.html" title="What is Mindfulness?" />
+			<action type="page" filename="learnWhyPracticeMindfulness.html" title="Why Practice Mindfulness?" navigationTitle="Why Practice?" />
+			<action type="page" filename="learnBenefitsForVeterans.html" title="Mindfulness for Veterans" />
+			<action type="page" filename="learnBenefitsForPTSD.html" title="Benefits of Mindfulness for PTSD" navigationTitle="Benefits for PTSD" />
+			<action type="page" filename="learnPracticeChallenges.html" title="Practice Challenges with PTSD" navigationTitle="Practice with PTSD" />
+			<action type="page" filename="learnManagingPTSD.html" title="PTSD Symptoms During Practice" navigationTitle="PTSD Symptoms" />
+		</action>
+		
+		<action type="root" group="practice" title="Practice" help="helpPractice.html"icon="tabBarIconPractice.png" />
+
+		<action type="root" group="track" title="Track" help="helpTrack.html" icon="tabBarIconTrack.png" >
+<!--			<action type="editActivity" title="Log an Activity" section="1" accessory="none" />
+			<action type="viewActivities" title="View / Edit Existing Log" /> -->
+      <action type="viewActivities" title="Mindfulness Log" />
+			<action type="viewActivityProgress" section="2" title="Track Your Progress" />
+		</action>
+
+		<action type="root" group="remind" title="Reminders" help="helpReminders.html" icon="tabBarIconRemind.png" >
+			<instructions>Schedule times to practice mindfulness and fill in your log or choose to be reminded to be mindful at random times.</instructions>
+			<action type="editExerciseEvent" title="Schedule Activity" section="1" />
+<!--			<action type="editRandomReminders" title="Set Random Reminders" section="2" navigationTitle="Set Reminders" /> -->
+			<action type="editLogReminder" title="Remind Me To Log" section="3" />
+		</action>
+
+		<action type="root" group="about" title="About">
+			<action type="page" filename="aboutMindfulnessCoach.html" icon="menuIconAboutApplication.png" title="Mindfulness Coach" />
+			<action type="page" filename="aboutProjectTeam.html" icon="menuIconAboutProjectTeam.png" title="Project Team" />
+			<action type="page" filename="aboutProjectPartners.html" icon="menuIconAboutProjectPartners.png" title="Project Partners" />
+			<action type="showSettings" icon="menuIconAboutSettings.png" title="Settings"/>
+		</action>
+	</actions>
+	
+	<exercises>
+		<exercise title="Mindful Breathing" filename="practiceMindfulBreathing.html" />
+		<exercise title="Mindful Walking" filename="practiceMindfulWalking.html" />
+		<exercise title="Mindful Eating" filename="practiceMindfulEating.html" />
+		<exercise title="Mindful Listening" filename="practiceMindfulListening.html" />
+		<exercise title="Mindful Looking" filename="practiceMindfulLooking.html" />
+		<exercise title="Leaves on a Stream" filename="practiceLeavesOnAStream.html" />
+		<exercise title="Clouds in the Sky" filename="practiceCloudsInTheSky.html" />
+		<exercise title="Body Scan" filename="practiceBodyScan.html" />
+		<exercise title="Emotional Discomfort" filename="practiceEmotionalDiscomfort.html" />
+	</exercises>
+	
+</mindfulnessCoach>
