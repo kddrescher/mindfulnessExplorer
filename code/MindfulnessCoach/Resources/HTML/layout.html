@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+	<title></title>
+	<script type="text/javascript" charset="utf-8">
+		var Mindfulness = {
+      showSelfGuide: function() {
+        document.getElementById('introduction').style.display = 'none';
+        document.getElementById('selfGuided').style.display = 'block';
+        document.getElementById('guided-buttons').style.display = 'none';
+        document.getElementById('mindfulnessLogEntryButton').style.display = 'block';
+      },
+			
+      showAudioGuide: function(filename) {
+        window.location.href = "playVideo.vpd#" + filename;
+        document.getElementById('mindfulnessLogEntryButton').style.display = 'block';
+      },
+		}
+    
+		/**
+			* handleDOMContentLoaded
+			*/
+    function handleDOMContentLoaded() {
+		  // Disable "Open/Copy" sheet when the user does a long-touch on a link.
+		  // See: http://stackoverflow.com/questions/4314193/how-to-disable-long-touch-in-uiwebview-on-ipad
+			document.body.style.webkitTouchCallout='none';
+			document.body.style.KhtmlUserSelect='none';
+			
+			// Load appropriate image for device resolution
+      var images = document.getElementsByTagName("img");
+      for (var i =  0; i < images.length; i++) {
+				var img = images[i];
+				if (window.devicePixelRatio >= 2) {
+					img.src = img.getAttribute("data-retina");
+				} else {
+					img.src = img.getAttribute("data-lowres");
+				}
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', handleDOMContentLoaded, false);
+	</script>
+
+  <style type="text/css" media="screen">
+    /* Eric Meyer's CSS Reset */
+    /* http://meyerweb.com/eric/tools/css/reset/ */
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section { display: block; }
+    body { line-height: 1; }
+    ol, ul { list-style: none; }
+    blockquote, q { quotes: none; }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+  </style>
+
+	<style type="text/css" media="screen">
+    body {
+      /* I've tried in vain to figure out how to exactly match up text in a UIWebView
+       with native text but can't find the secret combination. Using the Email
+       compose screen as baseline, the settings below produce the closest match,
+       but it's still not a perfect match. Notably, UIWebView text has an exer so
+       slight amount of letter-spacing that the native text doesn't... /shrug */
+      font-family: ".Helvetica NeueUI", "Helvetica", sans-serif;
+      font-size: 15px;
+      line-height: 19px;
+    }
+    
+    body.default {
+      background: transparent url('backgroundGrayStripped.png') repeat-y;
+      background-size: 320px 480px;
+      color: #1C2739;
+    }
+    
+    .blockCenter {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .alignRight { text-align: right; }
+    .alignCenter { text-align: center; }
+    .floatRight { float: right; }
+    .floatLeft { float: left; }
+    strong { font-weight: bold; }
+    em { font-style: italic; }
+    
+    ol, ul, p, hr { margin-bottom: 10px; }
+    * > :last-child { margin-bottom: 0px; }
+    
+    p.quote {
+      font-style: italic;
+      text-align: center;
+    }
+    
+    /**
+     * Links
+     */
+    a {
+      color: #418028;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    
+    /**
+     * Headers
+     */
+    h4 {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    h5 {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+    
+    h6 {
+      /* Basically this is the same as bolding something but by declaring
+       it as a heading, we'll get better VoiceOver support. */
+      font-weight: bold;
+    }
+    
+    img + h5 { margin-top: 5px; }
+
+    /**
+     * Lists
+     */
+    ol, ul { margin-left: 19px; }
+    ol { list-style: decimal; }
+    ul { list-style: disc; }
+    li { margin-bottom: 10px; }
+    li > ol, li > ul { margin-top: 10px; }
+    /* p + ol, p + ul { margin-top: -11px; } */
+    p + ul.noHack { margin-top: 11px; }
+    
+    /**
+     * Content 
+     */
+    div.wrapper {
+      margin: 10px 9px;
+      overflow: hidden;
+      padding: 10px;
+    }
+    
+    div.wrapper img { vertical-align: text-top; }
+    div.wrapper img.floatLeft { margin-right: 6px; }
+    div.wrapper img.floatRight { margin-left: 6px; }
+    
+    div.bordered {
+      background-color: #FFFFFF;
+      border: 1px solid #ABABAB;
+      border-radius: 11px;
+      box-shadow: 0px 1px 1px #FFF;
+    }
+    
+    div.shadowed {
+      background-color: #FFF;
+      border-radius: 10px;
+      box-shadow: 2px 2px 2px #444;
+    }
+
+    /**
+     * Audio
+     */
+    div.audio {
+      margin-bottom: 10px;
+      text-align: center; 
+    }
+
+    /**
+     * Practice Section 
+     */
+    div#selfGuided, div#activityButton { display: none; }
+    
+    /**
+     * About 
+     */
+    div#projectTeam { position: relative; }
+    div#projectTeam ul { margin-left: 0px; }
+    div#projectTeam ul li { list-style-type: none; }
+	
+    /**
+     * Buttons
+     */
+    div.buttons {
+      margin: 10px 9px;
+      text-align: center;
+    }
+    
+    div.buttons button {
+      background: transparent url('buttonBackgroundGrayNormal.png') no-repeat bottom;
+      background-size: 300px 37px;
+      border: transparent 0px none;
+      color: #1C2739;
+      font-size: 17px;
+      font-weight: bold;
+      height: 40px;
+      text-shadow: 0 1px #FFF;
+      white-space: nowrap;
+      width: 300px;
+      -webkit-appearance: none;
+    }
+    
+    div.buttons button + button {
+      margin-top: 10px;
+    }
+    
+    div.buttons button:active {
+      background: transparent url('buttonBackgroundGrayHighlighted.png') no-repeat bottom;
+      color: #FFF;
+      text-shadow: 0 0px #222;
+    }
+    
+    #mindfulnessLogEntryButton {
+      display: none;
+    }
+    
+    /**
+     * Buttons Inline
+     */
+    div.buttons-inline {
+      text-align: left;
+    }
+    
+    div.buttons-inline button {
+      background: transparent url('buttonBackgroundGraySmallNormal.png') no-repeat bottom;
+      background-size: 145px 37px;
+      float: left;
+      width: 145px;
+    }
+    
+    div.buttons-inline button + button {
+      float: right;
+      margin-top: 0px;
+    }
+    
+    div.buttons-inline button:active {
+      background: transparent url('buttonBackgroundGraySmallHighlighted.png') no-repeat bottom;
+    }
+    
+    
+    div.buttons-inline:after {
+      /* Clear the floated inline buttons to regain the bottom margin on div.buttons */
+      content:"";
+      display:table;
+      clear:both;
+    }
+
+    /**
+     * Help - Home
+     */
+    div#helpHome div {
+      clear: both;
+      border-bottom: 1px solid #DDD;
+      overflow: hidden;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    div#helpHome div:first-child { padding-top: 0px; }
+    div#helpHome div:last-child {
+      border-bottom: 0px none;
+      padding-bottom: 0px;
+    }
+	</style>
+	
+	<style type="text/css" media="only screen and (-webkit-min-device-pixel-ratio: 2)">
+    body.default {
+      background-image: url('backgroundGrayStripped@2x.png');
+    }
+    
+    a.largeButton {
+      background-image: url('buttonBackgroundGrayNormal@2x.png');
+    }
+    
+    a.largeButton:active {
+      background: transparent url('buttonBackgroundGrayHighlight@2x.png') no-repeat bottom;
+    }
+    
+    div.buttons button {
+      /* It would appear that we need to specify the background size again. */
+      background: transparent url('buttonBackgroundGrayNormal@2x.png') no-repeat bottom;
+      background-size: 300px 37px;
+    }
+    
+    div.buttons button:active {
+      background: transparent url('buttonBackgroundGrayHighlighted@2x.png') no-repeat bottom;
+      background-size: 300px 37px;
+    }
+  
+    div.buttons-inline button {
+      background: transparent url('buttonBackgroundGraySmallNormal@2x.png') no-repeat bottom;
+      background-size: 145px 37px;
+    }
+
+    div.buttons-inline button:active {
+      background: transparent url('buttonBackgroundGraySmallHighlighted@2x.png') no-repeat bottom;
+      background-size: 145px 37px;
+    }
+
+</style>
+</head>
+<body ontouchstart="" class="__BODY_CLASS__">__PAGE_CONTENT__</body>
+</html>
